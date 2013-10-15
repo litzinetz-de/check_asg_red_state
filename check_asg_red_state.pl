@@ -164,7 +164,8 @@ if (length($cmd_scp) =~ 0 or $cmd_scp =~ /Warning: Permanently added/ ) {
          $red_ip = $hashref->{'peer'};
          `rm -rf $tmpdir/red_state_$red_id`;
          $result = OK;
-       $np->add_perfdata( label => "Uptime", value => $red_connected_since_min, uom => "min" );
+       #$np->add_perfdata( label => "Uptime", value => $red_connected_since_min, uom => "min" );
+	   $np->add_perfdata( label => "State", value => 1, uom => "" );
       } else { # offline
         `rm -rf $tmpdir/red_state_$red_id`;
         $np->nagios_exit( CRITICAL, "unable to connect to RED - offline since $uptime");
